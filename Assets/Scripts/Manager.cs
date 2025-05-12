@@ -44,23 +44,20 @@ public class Manager : MonoBehaviour
                 changeObjectState(placementMode);
             } 
 
-            // float dist = selected.transform.position.z - cam.transform.position.z;
-            // Vector3 screenPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, dist);
-            // Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
-            // selected.transform.position = new Vector3(worldPos.x, selected.transform.position.y, worldPos.z);
-            // selected.transform.position = ne;
             float moveX = prevPos.x - selected.transform.position.x;
             float moveZ = prevPos.z - selected.transform.position.z;
             float posX = selected.transform.position.x + moveX * 10.0f * Time.deltaTime;
             float posZ = selected.transform.position.z + moveZ * 10.0f * Time.deltaTime;
             selected.transform.position = new Vector3(posX, selected.transform.position.y, posZ);
             prevPos = hitFloor.point;
-            // offsetX = hitFloor.point.x - selected.transform.position.x;
-            // offsetZ = hitFloor.point.z - selected.transform.position.z;
-            // selected.transform.position = new Vector3(hitFloor.point.x - offsetX, selected.transform.position.y, hitFloor.point.z);
 
             
             if (Input.GetMouseButtonDown(0)) {
+                disableMode();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Delete)) {
+                Destroy(selected.gameObject);
                 disableMode();
             }
 
