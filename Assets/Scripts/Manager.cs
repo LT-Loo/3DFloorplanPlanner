@@ -15,10 +15,12 @@ public class Manager : MonoBehaviour
     private GameObject selected;
     private string selectedName;
     private bool newObj = false;
-    private float offsetX, offsetZ;
     private Vector3 prevPos;
-    // private bool moving = false;
+    private float moveSpeed = 10.0f;
     private Material objMaterial;
+    private bool isCollide = false;
+    private float moveX, moveZ;
+    private Vector3 borderPos;
     void Start()
     {
         prefabList = new Dictionary<string, GameObject>();
@@ -44,10 +46,13 @@ public class Manager : MonoBehaviour
                 changeObjectState(placementMode);
             } 
 
-            float moveX = prevPos.x - selected.transform.position.x;
-            float moveZ = prevPos.z - selected.transform.position.z;
-            float posX = selected.transform.position.x + moveX * 10.0f * Time.deltaTime;
-            float posZ = selected.transform.position.z + moveZ * 10.0f * Time.deltaTime;
+            moveX = prevPos.x - selected.transform.position.x;
+            moveZ = prevPos.z - selected.transform.position.z;
+            
+            if (isCollide) {checkCollision();}
+
+            float posX = selected.transform.position.x + moveX * moveSpeed * Time.deltaTime;
+            float posZ = selected.transform.position.z + moveZ * moveSpeed * Time.deltaTime;
             selected.transform.position = new Vector3(posX, selected.transform.position.y, posZ);
             prevPos = hitFloor.point;
 
@@ -106,6 +111,21 @@ public class Manager : MonoBehaviour
             renderer.material = ghostMaterial;
         } else {renderer.material = objMaterial;}
 
+    }
+
+    public void borderCollision(Vector3 pos, bool isEnter) {
+        if (isEnter) {
+            isCollide = true;
+            borderPos = pos;
+        } else {isCollide = false;}
+    }
+
+    void checkCollision() {
+        if (borderPos.x < 0f && moveX < 0f) {moveX = 0f;} 
+        else if (borderPos.x > 0f && moveX > 0f) {moveX = 0f;}
+
+        if (borderPos.z < 0f && moveZ < 0f) {moveZ = 0f;} 
+        else if (borderPos.z > 0f && moveZ > 0f) {moveZ = 0f;}
     }
 
 }

@@ -43,16 +43,16 @@ public class CameraSystem : MonoBehaviour
                 panToggle.isOn = true;
                 prevPos = Input.mousePosition;
             }
-        }
-        
+        } else {isPanning = false;}
+
         if (rotateToggle.isOn || Input.GetKey(KeyCode.LeftAlt)) {
             if (Input.GetMouseButtonDown(0)) {
                 isPanning = false;
                 isRotating = true;
                 rotateToggle.isOn = true;
                 prevPos = Input.mousePosition;
-            }
-        }
+            } 
+        } else {isRotating = false;}
 
         if (Input.GetMouseButtonUp(0)) {
             isPanning = false;
