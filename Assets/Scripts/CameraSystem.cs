@@ -36,15 +36,17 @@ public class CameraSystem : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0)) {
-            if (panToggle.isOn || Input.GetKey(KeyCode.LeftControl)) {
+        if (panToggle.isOn || Input.GetKey(KeyCode.LeftControl)) {
+            if (Input.GetMouseButtonDown(0)) {
                 isRotating = false;
                 isPanning = true;
                 panToggle.isOn = true;
                 prevPos = Input.mousePosition;
             }
-
-            if (rotateToggle.isOn || Input.GetKey(KeyCode.LeftAlt)) {
+        }
+        
+        if (rotateToggle.isOn || Input.GetKey(KeyCode.LeftAlt)) {
+            if (Input.GetMouseButtonDown(0)) {
                 isPanning = false;
                 isRotating = true;
                 rotateToggle.isOn = true;

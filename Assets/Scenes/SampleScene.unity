@@ -1140,6 +1140,11 @@ MonoBehaviour:
   floorLayer:
     serializedVersion: 2
     m_Bits: 8
+  componentLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  ghostMaterial: {fileID: 2100000, guid: 4176c1bd66eb24449ba2fe0c6cbaa687, type: 2}
+  componentMenu: {fileID: 1393010865}
   prefabs:
   - {fileID: 3034171849380619039, guid: aa79092d8b0eb6b47978247a31a3b395, type: 3}
   - {fileID: 1288464683656713750, guid: cca3a7d314068fe449d0f417d5d0c34f, type: 3}
@@ -3721,7 +3726,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!114 &1829741886
 MonoBehaviour:
   m_ObjectHideFlags: 0

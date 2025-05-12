@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3053830407640753405}
   - component: {fileID: 8686493129937864168}
   - component: {fileID: 2883952736738083594}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,9 +149,9 @@ GameObject:
   - component: {fileID: 7550100811998152230}
   - component: {fileID: 5136842150946203831}
   - component: {fileID: 591873109090733730}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Component
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,7 +271,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!1 &8746964704123751109
 GameObject:
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 1675361648267190149}
   - component: {fileID: 3716510123860984629}
   - component: {fileID: 6886895427056696807}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}

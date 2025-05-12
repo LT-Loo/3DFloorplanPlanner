@@ -9,11 +9,12 @@ public class ComponentMenu : MonoBehaviour
     public Manager manager;
     private ToggleGroup toggleGroup;
     private Toggle selected = null;
+    private Toggle[] toggles;
     void Start()
     {
         toggleGroup = GetComponent<ToggleGroup>();
 
-        Toggle[] toggles = GetComponentsInChildren<Toggle>();
+        toggles = GetComponentsInChildren<Toggle>();
         foreach (Toggle toggle in toggles) {
             toggle.onValueChanged.AddListener(toggleChange);
         }
@@ -27,10 +28,16 @@ public class ComponentMenu : MonoBehaviour
 
     void toggleChange(bool isOn) {
         selected = toggleGroup.ActiveToggles().FirstOrDefault();
-        // Debug.Log(selected.name);
 
         if (selected != null) {
-            manager.activateMode(false, selected.name);
+            manager.activateMode(true, selected.name);
         } else {manager.disableMode();}
     }
+
+    public void deactivateAllToggles() {
+        foreach (Toggle toggle in toggles) {
+            toggle.isOn = false;
+        }
+    }
+
 }

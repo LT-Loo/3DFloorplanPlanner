@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8078599740511009338}
   - component: {fileID: 1012978958157840355}
   - component: {fileID: 4784897923633398867}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 2555832651902712268}
   - component: {fileID: 4600673270253059515}
   - component: {fileID: 2533578207329243460}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Monitor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 4537424712043888364}
   - component: {fileID: 5463442336957429271}
   - component: {fileID: 2195228039936973433}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,9 +359,9 @@ GameObject:
   - component: {fileID: 3796349880564760318}
   - component: {fileID: 7108316856227302222}
   - component: {fileID: 2375773148635784376}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Checkout
-  m_TagString: Untagged
+  m_TagString: Component
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -482,7 +482,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!1 &6538335351502249426
 GameObject:
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 1663864833371436669}
   - component: {fileID: 3045214168483251786}
   - component: {fileID: 5131167998059538718}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Till
   m_TagString: Untagged
   m_Icon: {fileID: 0}

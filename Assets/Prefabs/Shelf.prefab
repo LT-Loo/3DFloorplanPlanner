@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5481869565508675536}
   - component: {fileID: 3697569898184168767}
   - component: {fileID: 660002028289474379}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 2814818527134321735}
   - component: {fileID: 1877938268720821165}
   - component: {fileID: 9220551191234950265}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,9 +251,9 @@ GameObject:
   - component: {fileID: 2109802372535555658}
   - component: {fileID: 1396462219574680342}
   - component: {fileID: 5572861097126885378}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shelf
-  m_TagString: Untagged
+  m_TagString: Component
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -373,5 +373,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0

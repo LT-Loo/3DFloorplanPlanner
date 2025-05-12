@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5053579308257536161}
   - component: {fileID: 5530362108667506647}
   - component: {fileID: 3412723231400311192}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,9 +115,9 @@ GameObject:
   - component: {fileID: 3093337268852111841}
   - component: {fileID: 2687730009446344119}
   - component: {fileID: 6264649124013804833}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Display Stand
-  m_TagString: Untagged
+  m_TagString: Component
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -237,7 +237,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!1 &2739261250133445144
 GameObject:
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 5606847884956040233}
   - component: {fileID: 6067212022058246948}
   - component: {fileID: 8543075209124882031}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
