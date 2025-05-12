@@ -21,7 +21,7 @@ public class ToggleController : MonoBehaviour
     
     }
 
-    public void UpdateColor(bool isOn) {
+    void UpdateColor(bool isOn) {
         if (background != null) {
             background.color = isOn ? onColor : offColor;
         }
