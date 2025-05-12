@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 3796349880564760318}
   - component: {fileID: 7108316856227302222}
   - component: {fileID: 2375773148635784376}
+  - component: {fileID: 4418909071028866570}
   m_Layer: 6
   m_Name: Checkout
   m_TagString: Component
@@ -451,8 +452,8 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
@@ -484,6 +485,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!114 &4418909071028866570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034171849380619039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8043cfac3f81e284f9c1a2c885dbe548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6538335351502249426
 GameObject:
   m_ObjectHideFlags: 0

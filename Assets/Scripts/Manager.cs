@@ -19,6 +19,7 @@ public class Manager : MonoBehaviour
     private float moveSpeed = 10.0f;
     private Material objMaterial;
     private bool isCollide = false;
+    private bool refusePlacement = false;
     private float moveX, moveZ;
     private Vector3 borderPos;
     void Start()
@@ -40,6 +41,7 @@ public class Manager : MonoBehaviour
             if (newObj && selected == null) {
                 Transform newObject = prefabList[selectedName].transform;
                 selected = Instantiate(prefabList[selectedName], new Vector3(0, newObject.transform.position.y, 0), newObject.rotation);
+                selected.GetComponent<StoreComponent>().addManager(GetComponent<Manager>());
                 newObj = false;
                 prevPos = hitFloor.point;
                 // offset = hitFloor.point;
@@ -49,7 +51,7 @@ public class Manager : MonoBehaviour
             moveX = prevPos.x - selected.transform.position.x;
             moveZ = prevPos.z - selected.transform.position.z;
             
-            if (isCollide) {checkCollision();}
+            if (isCollide) {checkBorderCollision();}
 
             float posX = selected.transform.position.x + moveX * moveSpeed * Time.deltaTime;
             float posZ = selected.transform.position.z + moveZ * moveSpeed * Time.deltaTime;
@@ -57,7 +59,7 @@ public class Manager : MonoBehaviour
             prevPos = hitFloor.point;
 
             
-            if (Input.GetMouseButtonDown(0)) {
+            if (Input.GetMouseButtonDown(0) && !refusePlacement) {
                 disableMode();
             }
 
@@ -98,6 +100,7 @@ public class Manager : MonoBehaviour
         componentMenu.deactivateAllToggles();
         cam.GetComponent<CameraSystem>().enabled = true;
         newObj = false;
+        refusePlacement = false;
         if (selected != null) {
             changeObjectState(placementMode);
         }
@@ -120,12 +123,23 @@ public class Manager : MonoBehaviour
         } else {isCollide = false;}
     }
 
-    void checkCollision() {
+    void checkBorderCollision() {
         if (borderPos.x < 0f && moveX < 0f) {moveX = 0f;} 
         else if (borderPos.x > 0f && moveX > 0f) {moveX = 0f;}
 
         if (borderPos.z < 0f && moveZ < 0f) {moveZ = 0f;} 
         else if (borderPos.z > 0f && moveZ > 0f) {moveZ = 0f;}
+    }
+
+    public void componentCollision(bool isCollide) {
+        refusePlacement = isCollide;
+        if (selected != null) {
+            Renderer renderer = selected.GetComponent<Renderer>();
+
+            if (refusePlacement) {
+                renderer.material.color = new Color(1f, 0f, 0f);
+            } else {renderer.material = ghostMaterial;}
+        }
     }
 
 }
