@@ -44,7 +44,6 @@ public class Manager : MonoBehaviour
                 selected.GetComponent<StoreComponent>().addManager(GetComponent<Manager>());
                 newObj = false;
                 prevPos = hitFloor.point;
-                // offset = hitFloor.point;
                 changeObjectState(placementMode);
             } 
 
