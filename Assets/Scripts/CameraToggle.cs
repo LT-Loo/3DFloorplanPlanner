@@ -16,14 +16,10 @@ public class ToggleController : MonoBehaviour
         UpdateColor(toggle.isOn);
     }
 
-    void Update()
-    {
-    
-    }
-
     void UpdateColor(bool isOn) {
         if (background != null) {
             background.color = isOn ? onColor : offColor;
         }
     }
+
 }

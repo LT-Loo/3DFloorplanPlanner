@@ -1,6 +1,3 @@
-using System;
-using System.Data.Common;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,11 +23,15 @@ public class CameraSystem : MonoBehaviour
     private bool zoomInBtnTriggered = false;
     private bool zoomOutBtnTriggered = false;
     private float zoomCount = 0f;
+    
+    // Top Down
+    public Toggle topDownToggle;
 
     void Start()
     {
         zoomIn.onClick.AddListener(buttonZoomIn);
         zoomOut.onClick.AddListener(buttonZoomOut);
+        topDownToggle.onValueChanged.AddListener(triggerTopDownView);
     }
 
     void Update()
@@ -116,6 +117,14 @@ public class CameraSystem : MonoBehaviour
 
     void buttonZoomOut() {
         zoomOutBtnTriggered = true;
+    }
+
+    void triggerTopDownView(bool isOn) {
+        if (isOn) {
+            cam.transform.position = new Vector3(0f, 10f, 0f);
+            cam.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
+            topDownToggle.isOn = false;
+        }
     }
 
 }

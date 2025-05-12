@@ -800,8 +800,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.20209683, y: -0.24668351, z: 0.052681524, w: 0.9463239}
+  m_LocalPosition: {x: 5.446553, y: 3.236219, z: -9.161156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -869,6 +869,7 @@ MonoBehaviour:
   rotateToggle: {fileID: 468192967}
   zoomIn: {fileID: 1868738352}
   zoomOut: {fileID: 1809566768}
+  topDownToggle: {fileID: 684243850}
 --- !u!1 &333734168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,6 +1920,7 @@ GameObject:
   m_Component:
   - component: {fileID: 684243849}
   - component: {fileID: 684243850}
+  - component: {fileID: 684243851}
   m_Layer: 5
   m_Name: Top Down
   m_TagString: Untagged
@@ -1995,6 +1997,22 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!114 &684243851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684243848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ddaa27c3573824f94021ce7e64cff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggle: {fileID: 684243850}
+  background: {fileID: 0}
+  onColor: {r: 0.4862745, g: 0.5372549, b: 0.6784314, a: 1}
+  offColor: {r: 0.8117647, g: 0.8117647, b: 0.8117647, a: 1}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
