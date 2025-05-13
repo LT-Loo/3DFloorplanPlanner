@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+// Camera system to control planner view
 public class CameraSystem : MonoBehaviour
 {
-    public Transform pivot;
+    public Transform pivot; // For view rotation
     public Transform cam;
     private Vector3 prevPos;
 
@@ -36,7 +37,7 @@ public class CameraSystem : MonoBehaviour
 
     void Update()
     {
-
+        // Trigger panning when toggle is triggered or Mouse 0 + Ctrl are pressed
         if (panToggle.isOn || Input.GetKey(KeyCode.LeftControl)) {
             if (Input.GetMouseButtonDown(0)) {
                 isRotating = false;
@@ -46,6 +47,7 @@ public class CameraSystem : MonoBehaviour
             }
         } else {isPanning = false;}
 
+        // Trigger view rotation when toggle is triggered or Mouse 0 + Alt are pressed
         if (rotateToggle.isOn || Input.GetKey(KeyCode.LeftAlt)) {
             if (Input.GetMouseButtonDown(0)) {
                 isPanning = false;
@@ -55,6 +57,7 @@ public class CameraSystem : MonoBehaviour
             } 
         } else {isRotating = false;}
 
+        // Terminate both panning and rotation when Mouse 0 is released
         if (Input.GetMouseButtonUp(0)) {
             isPanning = false;
             isRotating = false;
@@ -65,6 +68,7 @@ public class CameraSystem : MonoBehaviour
         cameraZoom();
     }
 
+    // Pan view (Pivot moves along with camera)
     void cameraPan() {
         if (isPanning) {
             Vector3 change = Input.mousePosition - prevPos;
@@ -76,6 +80,7 @@ public class CameraSystem : MonoBehaviour
         }
     }
 
+    // Rotate view (Camera orbits pivot)
     void cameraRotate() {
         if (isRotating) {
             float horizontal = Input.GetAxis("Mouse X") * 10.0f;
@@ -89,19 +94,24 @@ public class CameraSystem : MonoBehaviour
         }
     }
 
+    // Zoom view by scrolling mouse wheel or via touchpad
+    // Can also operate through Zoom buttons by clicking on them
     void cameraZoom() {
         float zoom = Input.mouseScrollDelta.y;
         
+        // Scroll or touchpad
         if (zoom != 0f && !zoomInBtnTriggered && !zoomOutBtnTriggered) {
             cam.position += cam.forward * zoom * zoomSpeed * Time.deltaTime;
         } 
-        
+
+        // Buttons
         if ((zoomInBtnTriggered || zoomOutBtnTriggered) && zoom == 0f) {
             if (zoomInBtnTriggered) {
                 cam.position += cam.forward * zoomSpeed * Time.deltaTime;
             } else if (zoomOutBtnTriggered) {
                 cam.position -= cam.forward * zoomSpeed * Time.deltaTime;
             }
+
             zoomCount += 1.0f;
             if (zoomCount >= 35.0f) {
                 zoomCount = 0.0f;
@@ -110,15 +120,18 @@ public class CameraSystem : MonoBehaviour
             }
         }
     }
-
+    
+    // Triggered when clicking zoom in button
     void buttonZoomIn() {
         zoomInBtnTriggered = true;
     }
 
+    // Triggered when clicking zoom out button
     void buttonZoomOut() {
         zoomOutBtnTriggered = true;
     }
 
+    // Check to move camera to show top down view of planner
     void triggerTopDownView(bool isOn) {
         if (isOn) {
             cam.transform.position = new Vector3(0f, 10f, 0f);

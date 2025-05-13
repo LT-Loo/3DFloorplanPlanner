@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Visual change for pan and rotate toggles
 public class ToggleController : MonoBehaviour
 {
     public Toggle toggle;
@@ -16,6 +17,7 @@ public class ToggleController : MonoBehaviour
         UpdateColor(toggle.isOn);
     }
 
+    // Toggle on - Blue, off - grey
     void UpdateColor(bool isOn) {
         if (background != null) {
             background.color = isOn ? onColor : offColor;

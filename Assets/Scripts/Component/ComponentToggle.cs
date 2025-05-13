@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+// Manage colour change of toggle
 public class ComponentToggle : MonoBehaviour
 {
     public Toggle toggle;
@@ -14,11 +15,8 @@ public class ComponentToggle : MonoBehaviour
         UpdateColor(toggle.isOn);
     }
 
-    void Update()
-    {
-        
-    }
-
+    // Green - Component selected
+    // White - Inactive
     void UpdateColor(bool isOn) {
         if (background != null) {
             background.color = isOn ? onColor : offColor;

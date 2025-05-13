@@ -63,10 +63,9 @@ public class ComponentPanel : MonoBehaviour
             manager.updateDataFromPanel("name", input);
         }
         if (float.TryParse(input, out output)) {;
-            Debug.Log("updating");
-            if (field == posX) {
+            if (field == posX && output <= 4.2f && output >= -4.2f) {
                 manager.updateDataFromPanel("posX", input);
-            } else if (field == posZ) {
+            } else if (field == posZ && output <= 4.2f && output >= -4.2f) {
                 manager.updateDataFromPanel("posZ", input);
             } else if (field == rot && output >= 0.0f && output <= 360.0f) {
                 rotScroll.value = float.Parse(rot.text) / 360f;

@@ -1,32 +1,15 @@
 using UnityEngine;
 
+// Detect collision between component and floor space border
+// Inform manager when collision is detected or finished
 public class BorderCollision : MonoBehaviour
 {
     public Manager manager;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created    
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnTriggerEnter(Collider collider)
     {
         if (collider.transform.tag == "Component") {
-            // Debug.Log("collider in:" + collider.transform.name);
             manager.borderCollisionTrigger(transform.position, true);
-        }
-    }
-
-    void OnTriggerStay(Collider collider) {
-        if (collider.transform.tag == "Component") {
-            manager.returnInitPos(collider.gameObject);
         }
     }
 
@@ -36,4 +19,5 @@ public class BorderCollision : MonoBehaviour
             manager.borderCollisionTrigger(transform.position, false);
         }        
     }
+
 }
