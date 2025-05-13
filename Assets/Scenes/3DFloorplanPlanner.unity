@@ -3584,7 +3584,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.4000015, y: 0.52369976}
+  m_AnchoredPosition: {x: 1.4000168, y: 0.52369976}
   m_SizeDelta: {x: 6.3728, y: -1.0475}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1023915358
@@ -4994,10 +4994,10 @@ RectTransform:
   - {fileID: 684243849}
   m_Father: {fileID: 425272258}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -343.62805, y: 197.97676}
-  m_SizeDelta: {x: -693.6363, y: -402.6887}
+  m_SizeDelta: {x: 106.36371, y: 47.31131}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1423040715
 MonoBehaviour:
@@ -7326,9 +7326,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Close
-
-'
+  m_text: Close
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

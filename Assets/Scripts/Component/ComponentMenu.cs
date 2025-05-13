@@ -26,13 +26,16 @@ public class ComponentMenu : MonoBehaviour
 
     // When a component is selected, inform manager and switch to placement mode
     void toggleChange(bool isOn) {
-        selected = toggleGroup.ActiveToggles().FirstOrDefault();
+        Toggle newSelected = toggleGroup.ActiveToggles().FirstOrDefault();
 
-        if (selected != null && !manager.isPlacementMode()) {
-            manager.activateMode(true, selected.name);
-        } else if (selected != null && manager.isPlacementMode()) {
-            manager.changeObject(selected.name);
-        } else {manager.disableMode();}
+        if (newSelected != null && !manager.isPlacementMode()) {
+            selected = newSelected;
+            manager.activateMode(true, newSelected.name);
+        } else if (newSelected == null && !manager.isPlacementMode()) {
+            manager.disableMode();
+        } else if (newSelected != null && manager.isPlacementMode()) {
+            selected.isOn = true;
+        }
     }
 
     // Deactivate all toggles

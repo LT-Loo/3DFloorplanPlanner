@@ -84,8 +84,6 @@ public class Manager : MonoBehaviour
 
             prevPos = hitFloor.point; // Update previous position
 
-            componentPanel.receiveObjectData(selected); // Update component panel
-
             // Click to place component, then deactivate placement mode
             if (Input.GetMouseButtonDown(0)) {
                 disableMode();
@@ -94,6 +92,10 @@ public class Manager : MonoBehaviour
             // Delete component if Delete key is pressed
             if (Input.GetKeyDown(KeyCode.Delete)) {
                 deleteComponent();
+            }
+
+            if (selected != null) {
+                componentPanel.receiveObjectData(selected); // Update component panel
             }
 
         // When an existing component is selected in non-placement mode
@@ -110,39 +112,23 @@ public class Manager : MonoBehaviour
         }
     }
 
-    // Switch component (only for new object in placement mode)
-    public void changeObject(string name) {
-        if (newObj && placementMode && selected != null) {
-            Vector3 pos = selected.transform.position;
-            Quaternion rot = selected.transform.rotation;
-
-            Destroy(selected);
-
-            Transform newComponent = prefabList[selectedName].transform;
-            selected = Instantiate(prefabList[name], new Vector3(pos.x, newComponent.transform.position.y , pos.z), rot);
-            selected.GetComponent<StoreComponent>().addManager(GetComponent<Manager>());
-
-            changeObjectState(placementMode); // Change state
-
-            componentPanel.openPanel(selected); // Open component panel
-        }
-    }
-
     public bool isPlacementMode() {return placementMode;}
 
     // Activate placement mode
     public void activateMode(bool newOb, string name = null, GameObject component = null) {
-        placementMode = true;
-        cam.GetComponent<CameraSystem>().enabled = false; // Disable camera tools
+        if (!placementMode) {
+            placementMode = true;
+            cam.GetComponent<CameraSystem>().enabled = false; // Disable camera tools
 
-        selected = component; // Assigned selected component
-
-        if (newOb) { // If new component, get component name
             newObj = newOb;
-            selectedName = name;
-        } else { // If existing component, change to placement state
-            changeObjectState(placementMode);
-            componentPanel.openPanel(selected); // Show component panel
+            selected = component; // Assigned selected component
+
+            if (newOb) { // If new component, get component name
+                selectedName = name;
+            } else { // If existing component, change to placement state
+                changeObjectState(placementMode);
+                componentPanel.openPanel(selected); // Show component panel
+            }
         }
     }
 
@@ -206,7 +192,6 @@ public class Manager : MonoBehaviour
 
     // Delete component and disable placement mode
     public void deleteComponent() {
-        componentPanel.deleteComponent();
         Destroy(selected.gameObject);
         disableMode();
     }
@@ -214,11 +199,12 @@ public class Manager : MonoBehaviour
     // Receive data change from component panel and update properties
     public void updateDataFromPanel(string name, string input) {
 
-        Vector3 pos = selected.transform.position;
-        Quaternion rot = selected.transform.rotation;
-
         // Data stored accordingly
         if (selected != null) {
+
+            Vector3 pos = selected.transform.position;
+            Quaternion rot = selected.transform.rotation;
+
             if (name == "name") {
                 selected.name = input;
             } else if (name == "posX") {
