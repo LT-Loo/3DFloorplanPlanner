@@ -1,7 +1,7 @@
 # 3D Floor Planner
 This is a simple 3D retail floor planning tool made in Unity. It allows users plan and design store layouts using common store components such as shelf, fridge and checkout counter.
 <br><br>
-Try it not on [Itch.io](https://lt-loo.itch.io/3d-foorplan-planner)!
+Try it now on [Itch.io](https://lt-loo.itch.io/3d-foorplan-planner)!
 
 ## Code Structure
 ```
@@ -83,7 +83,7 @@ Offeing customisable floorplan size and shape would give users greater flexibili
 Utilising sales analysis to inform stock placement and display strategies can help identify high-performing products and optimise floor space. This can impove overall sales and efficiency by strategically displaying popular items in high-traffic areas.
 
 ## Developer
-Ler Theng Loo
+Ler Theng Loo<br>
 [loo.workspace@gmail.com](loo.workspace@gmail.com)
 
   
