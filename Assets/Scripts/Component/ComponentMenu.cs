@@ -28,8 +28,10 @@ public class ComponentMenu : MonoBehaviour
     void toggleChange(bool isOn) {
         selected = toggleGroup.ActiveToggles().FirstOrDefault();
 
-        if (selected != null) {
+        if (selected != null && !manager.isPlacementMode()) {
             manager.activateMode(true, selected.name);
+        } else if (selected != null && manager.isPlacementMode()) {
+            manager.changeObject(selected.name);
         } else {manager.disableMode();}
     }
 

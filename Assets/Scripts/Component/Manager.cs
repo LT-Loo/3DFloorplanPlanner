@@ -68,7 +68,6 @@ public class Manager : MonoBehaviour
                 componentPanel.openPanel(selected); // Open component panel
 
                 prevPos = hitFloor.point; // Get raycast hit point
-                newObj = false;
             } 
 
             // Calculate moving distance
@@ -110,6 +109,26 @@ public class Manager : MonoBehaviour
             }
         }
     }
+
+    // Switch component (only for new object in placement mode)
+    public void changeObject(string name) {
+        if (newObj && placementMode && selected != null) {
+            Vector3 pos = selected.transform.position;
+            Quaternion rot = selected.transform.rotation;
+
+            Destroy(selected);
+
+            Transform newComponent = prefabList[selectedName].transform;
+            selected = Instantiate(prefabList[name], new Vector3(pos.x, newComponent.transform.position.y , pos.z), rot);
+            selected.GetComponent<StoreComponent>().addManager(GetComponent<Manager>());
+
+            changeObjectState(placementMode); // Change state
+
+            componentPanel.openPanel(selected); // Open component panel
+        }
+    }
+
+    public bool isPlacementMode() {return placementMode;}
 
     // Activate placement mode
     public void activateMode(bool newOb, string name = null, GameObject component = null) {
