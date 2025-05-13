@@ -20,15 +20,20 @@ public class BorderCollision : MonoBehaviour
     {
         if (collider.transform.tag == "Component") {
             // Debug.Log("collider in:" + collider.transform.name);
-            manager.borderCollision(transform.position, true);
+            manager.borderCollisionTrigger(transform.position, true);
+        }
+    }
+
+    void OnTriggerStay(Collider collider) {
+        if (collider.transform.tag == "Component") {
+            manager.returnInitPos(collider.gameObject);
         }
     }
 
     void OnTriggerExit(Collider collider)
     {
         if (collider.transform.tag == "Component") {
-            // Debug.Log("collider out:" + collider.transform.name);
-            manager.borderCollision(transform.position, false);
+            manager.borderCollisionTrigger(transform.position, false);
         }        
     }
 }
