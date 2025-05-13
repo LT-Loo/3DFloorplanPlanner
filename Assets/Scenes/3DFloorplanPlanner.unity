@@ -1005,8 +1005,8 @@ Camera:
   m_GameObject: {fileID: 330585543}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.4126023, g: 0.5413335, b: 0.7169812, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1535,15 +1535,15 @@ MonoBehaviour:
   componentLayer:
     serializedVersion: 2
     m_Bits: 64
-  ghostMaterial: {fileID: 2100000, guid: 4176c1bd66eb24449ba2fe0c6cbaa687, type: 2}
-  componentMenu: {fileID: 1393010865}
-  componentPanel: {fileID: 1742857833}
   prefabs:
   - {fileID: 3034171849380619039, guid: aa79092d8b0eb6b47978247a31a3b395, type: 3}
   - {fileID: 1288464683656713750, guid: cca3a7d314068fe449d0f417d5d0c34f, type: 3}
   - {fileID: 7413963046301644986, guid: fb643f6c9cd97bd41bd014f9ef1015bd, type: 3}
   - {fileID: 4559248779243647756, guid: 81cdf07e2f5c904478d979bdc023233b, type: 3}
   - {fileID: 8190128396937861183, guid: b0f6fd3daab3f294198d211b09f7b7f7, type: 3}
+  ghostMaterial: {fileID: 2100000, guid: 4176c1bd66eb24449ba2fe0c6cbaa687, type: 2}
+  componentMenu: {fileID: 1393010865}
+  componentPanel: {fileID: 1742857833}
 --- !u!4 &403976147
 Transform:
   m_ObjectHideFlags: 0
